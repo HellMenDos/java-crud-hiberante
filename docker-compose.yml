@@ -1,0 +1,13 @@
+database:
+    image: mysql:5.7
+    ports:
+        - "3306:3306"
+    command: --init-file /sql/create-user-table.sql
+    volumes:
+        - ./init.sql:/sql/create-user-table.sql
+    environment:
+        MYSQL_ROOT_USER: root
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: userdb
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
